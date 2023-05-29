@@ -1,18 +1,18 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Arisu - as a mortal</title><meta name="author" content="Jeason Cheng"><meta name="copyright" content="Jeason Cheng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Arisu - as a mortal</title><meta name="author" content="Jeason Cheng"><meta name="copyright" content="Jeason Cheng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Arisu">
 <meta property="og:url" content="https://gufeng4396.github.io/index.html">
 <meta property="og:site_name" content="Arisu">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gufeng4396.github.io/img/rui_ss.webp">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:author" content="Jeason Cheng">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gufeng4396.github.io/img/rui_ss.webp"><link rel="shortcut icon" href="/img/icon_g.png"><link rel="canonical" href="https://gufeng4396.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://gufeng4396.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
-  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: 'Copy successfully',
     error: 'Copy error',
@@ -22,8 +22,8 @@
     homepage: false,
     post: false
   },
-  runtime: 'days',
-  date_suffix: {
+  runtime: '',
+  dateSuffix: {
     just: 'Just',
     min: 'minutes ago',
     hour: 'hours ago',
@@ -31,24 +31,29 @@
     month: 'months ago'
   },
   copyright: undefined,
-  lightbox: 'mediumZoom',
-  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
   source: {
     justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
     }
   },
-  isPhotoFigcaption: true,
-  islazyload: true,
-  isAnchor: true
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: 'Arisu',
   isPost: false,
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2022-08-26 14:04:53'
+  postUpdate: '2023-05-29 15:35:38'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -105,6 +110,21 @@
       document.head.appendChild(script)
     })
   
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
       win.activateDarkMode = function () {
         document.documentElement.setAttribute('data-theme', 'dark')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
@@ -119,12 +139,8 @@
       }
       const t = saveToLocal.get('theme')
     
-          const now = new Date()
-          const hour = now.getHours()
-          const isNight = hour <= 6 || hour >= 18
-          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          if (t === 'dark') activateDarkMode()
           else if (t === 'light') activateLightMode()
-          else activateDarkMode()
         
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
@@ -141,155 +157,200 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/rui_ss.webp" onerror="onerror=null;src='/img/error_f.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/Archives/"><div class="headline">Articles</div><div class="length-num">8</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/Archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-comment-dots"></i><span> Soliloquize</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/night_girl.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Arisu</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/Archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-comment-dots"></i><span> Soliloquize</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> Books</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Arisu</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/gufeng4396" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3515593397cxt@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/05/8f398f91f827/" title="408 - 計算機組成原理">408 - 計算機組成原理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-07-05T06:58:32.000Z" title="Created 2022-07-05 14:58:32">2022-07-05</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-07-19T16:18:45.805Z" title="Updated 2022-07-20 00:18:45">2022-07-20</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/408/">408</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/data-structure/">data structure</a></span></div><div class="content">408數據結構復習小結</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/06/22/0c1cb32b27d0/" title="408-數據結構">408-數據結構</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-06-22T13:34:01.000Z" title="Created 2022-06-22 21:34:01">2022-06-22</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-07-14T07:10:38.447Z" title="Updated 2022-07-14 15:10:38">2022-07-14</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/408/">408</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/data-structure/">data structure</a></span></div><div class="content">408數據結構復習小結</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/07/839f53253d7c/" title="Markdown基礎教程">Markdown基礎教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-05-07T01:43:42.000Z" title="Created 2022-05-07 09:43:42">2022-05-07</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-23T07:52:20.606Z" title="Updated 2022-06-23 15:52:20">2022-06-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Markdown/">Markdown</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Markdown/">Markdown</a></span></div><div class="content">Markdown
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/Archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Arisu"><span class="site-name">Arisu</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Arisu</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/05/8f398f91f827/" title="408 - 計算機組成原理">408 - 計算機組成原理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-07-05T06:58:32.000Z" title="Created 2022-07-05 14:58:32">2022-07-05</time></span></div><div class="content">計算機系統概述
+
+馮·諾伊曼機的基本工作方式為控制流驅動方式
+
+基本工作方式{控制流驅動方式：根據指令的執行序列依次進行指令執行數據流驅動方式：當一組或者一條指令所需要的數據準備好時，才能激發指令執行，因此，其指令序列由其數據依賴所決定基本工作方式\left\{
+\begin{aligned}
+控制流驅動方式： &amp; 根據指令的執行序列依次進行指令執行\\
+數據流驅動方式： &amp; 當一組或者一條指令所需要的數據準備好時，才能激發指令執行，因此，其指令序列由其數據依賴所決定
+\end{aligned}
+\right.
+基本工作方式{控制流驅動方式：數據流驅動方式：​根據指令的執行序列依次進行指令執行當一組或者一條指令所需要的數據準備好時，才能激發指令執行，因此，其指令序列由其數據依賴所決定​
+
+軟硬件在邏輯上是等效的
+馮·諾伊曼機采用&quot;存儲程序&quot;的工作方式
+計算機系統=硬件系統+軟件系統
+吞吐量：系統在單位時間内處理請求的數量
+響應時間：向計算機發送一個請求⋯⋯獲得所需結果⏟響應時間\underbrace{向計算機發送一個請求 \cdots \cdots  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/06/22/0c1cb32b27d0/" title="408-數據結構">408-數據結構</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-22T13:34:01.000Z" title="Created 2022-06-22 21:34:01">2022-06-22</time></span></div><div class="content">緒論
+
+一般情況下考慮的時間複雜度為最壞情況下的時間複雜度
+算法原地工作指的是算法所需的輔助空間為常量即O(1)並非不需要任何額外内存
+
+綫性表
+
+順序存儲結構是一種隨機存取的存儲結構(可以進行順序存取)
+
+棧，隊列和數組
+棧，隊列
+
+n個不同元素進棧，出棧元素的不同排列個數為1n+1C2nn\frac{1}{n+1}C^n_{2n}n+11​C2nn​(卡特蘭數)
+棧的上溢是指棧滿之後再push，棧的下溢是指棧空之後再pop
+單鏈表中最適合用作鏈隊的鏈表為帶隊首和隊尾指針的非循環單鏈表
+
+因爲隊列為雙端操作，因此最好使用帶帶隊首和隊尾指針的鏈表
+若加循環，每次進隊和出隊都需要修改保證循環，增加操作
+
+
+看是鏈表否適合作爲隊列，重要的一點是查找雙端(隊首和隊尾)指針的時間
+中綴表達式轉化爲後綴表達式的流程：
+
+
+遇到數字(字母)，直接加入後綴表達式
+遇到運算符：
+
+若爲’(',入棧
+若爲’)‘,則依次把棧中的運算符加入後綴表達式，直至將’('刪除
+其餘運算符，當其優先級高於除’(‘外的棧頂運算符時，直接入棧。否則從棧頂開始，依次彈出所有比當前運算符優先級高和相同的運算符，直到一個比它優 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/07/839f53253d7c/" title="Markdown基礎教程">Markdown基礎教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-07T01:43:42.000Z" title="Created 2022-05-07 09:43:42">2022-05-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Markdown/">Markdown</a></span></div><div class="content">Markdown
 Markdown是一種輕量級標記式語言，創始人為約翰·格魯伯。它允許人們使用易讀易寫的純文字格式編寫文件，然後轉換成有效的XHTML（或者HTML）文件。這種語言吸收了很多在電子郵件中已有的純文字標記的特性。
-由於Markdown的輕量化、易讀易寫特性，並且對於圖片，圖表、數學式都有支援，目前許多網站都廣泛使用Markdown來撰寫說明文件或是用於論壇上發表訊息。如GitHub、Reddit、Dia ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/06/57f57a07a698/" title="epub製作-文本預處理">epub製作-文本預處理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-05-06T06:59:25.000Z" title="Created 2022-05-06 14:59:25">2022-05-06</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-09T09:52:06.146Z" title="Updated 2022-05-09 17:52:06">2022-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/e-book/">e-book</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/epub/">epub</a></span></div><div class="content">對txt文本簡易處理，方便後續epub製作</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/05/edb35936d12a/" title="epub基礎教程">epub基礎教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-05-05T07:58:29.000Z" title="Created 2022-05-05 15:58:29">2022-05-05</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-08-26T06:02:44.658Z" title="Updated 2022-08-26 14:02:44">2022-08-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/e-book/">e-book</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/epub/">epub</a></span></div><div class="content">epub基礎製作</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/04/20/70e82750e643/" title="A Thousands of Winds">A Thousands of Winds</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-04-20T01:14:48.000Z" title="Created 2022-04-20 09:14:48">2022-04-20</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-07T01:23:57.184Z" title="Updated 2022-05-07 09:23:57">2022-05-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Thoughts/">Thoughts</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/poem/">poem</a></span></div><div class="content">
+由於Markdown的輕量化、易讀易寫特性，並且對於圖片，圖表、數學式都有支援，目前許多網站都廣泛使用Markdown來撰寫說明文件或是用於論壇上發表訊息。如GitHub、Reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge、簡書等，甚至還能被用來撰寫電子書。
+
+Markdown編輯器
+本地編輯器
+
+Typora 推薦 
+MarkdownPad
+Vscode 需要安裝擴展 
+
+web編輯器
+
+MdEditor
+
+
+基礎語法
+標題
+代碼  
+123456# 一级標題## 二级標題### 三级標題#### 四级標題##### 五级標題###### 六级標題
+效果 
+
+字體
+
+
+
+代碼
+意義
+效果
+
+
+
+
+*h1* \ _h1_
+斜體
+h1
+
+
+**h1** \ __h1__
+粗體
+h1
+
+
+***h1** ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/06/57f57a07a698/" title="epub製作-文本預處理">epub製作-文本預處理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-06T06:59:25.000Z" title="Created 2022-05-06 14:59:25">2022-05-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/e-book/">e-book</a></span></div><div class="content">推薦使用Emeditor進行文本預處理
+基於Emeditor版本 21.6.1
+
+Emeditor 下載地址
+
+文本預處理
+以下皆爲示例，具體按文本實際情況處理
+清理文本中網站推廣信息
+「搜索」-「替換」
+清理多餘空行
+「搜索」-「替換」
+「查找」\n\n\n
+「替換」\n\n
+清理段前空格
+「搜索」-「替換」
+「查找」^( |　)&#123;1,&#125;
+「替換」
+統一標點符號(半角全角統一)
+「編輯」-「高級」-「全角/半角轉換」
+查看是否存在漏章等問題
+後續epub製作
+參考epub基礎教程
+
+附錄1 Emeditor 設置
+
+「查看」-「大綱欄」-「大綱導航」
+「大綱」-「同步大綱與大綱欄」
+「大綱顯示」-「自定義」–「大綱欄位置」—「左」
+「工具」-「當前配置屬性」
+
+「常規」
+
+-「自動換行」–「窗口寬度」
+-「顯示行號」
+-「制表符縮進」–「啓用自動縮進」–「使用正則表達式」–「tab間距 4」–「縮進間距 4」
+
+
+「滾動」-「選項」–「總是啓用一頁垂直滾動」–「水平格綫」
+「自動保存」-「自動保存間隔 1min」
+「高亮(2)」-「高亮配對括號」-「自動完成括號/ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/05/edb35936d12a/" title="epub基礎教程">epub基礎教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-05T07:58:29.000Z" title="Created 2022-05-05 15:58:29">2022-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/e-book/">e-book</a></span></div><div class="content">需要一定html与css以及正则表达式基础
+基于sigil 1.9.2版本
+
+sigil 下载地址
+
+epub基础制作
+文本预处理
+参考epub製作-文本預處理
+导入
+打开sigil（默认为epub2,可改为epub3）
+将文章内容复制粘贴进body中（直接导入txt文件速度较慢）
+加上段落标签
+利用替换功能替换，选项卡选择(当前文件)，查找模式(正则表达式)
+查找
+^[^&lt;](.*)[^&gt;]$
+替换
+&lt;p&gt;\0&lt;/p&gt;
+使用「工具」–&gt;「HTML重新格式化」–&gt;「改进和美化所有HTML文件」
+链接CSS与增加charset
+在head中加入即可
+web_novel.css为我css文件名称，依据自己css名称为准
+&lt;link href=&quot;../Styles/web_novel.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+&lt;meta charset=&quot;utf-8&quot;/&gt;
+识别章节并分割
+根据文本具体情况 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/04/20/70e82750e643/" title="A Thousands of Winds">A Thousands of Winds</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-04-20T01:14:48.000Z" title="Created 2022-04-20 09:14:48">2022-04-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Thoughts/">Thoughts</a></span></div><div class="content">
 Do not stand at my grave and weep,
 I am not there,I do not sleep.
 I am a thousand winds that blow;
 I am the diamond glints on snow.
 I am the sunlight on ripened grain;
 I am the gentle autumn's rain.
-When you a ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/04/18/2a455be52747/" title="Const in C++">Const in C++</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-04-18T04:21:44.000Z" title="Created 2022-04-18 12:21:44">2022-04-18</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-07T01:19:12.253Z" title="Updated 2022-05-07 09:19:12">2022-05-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Programming-Language/">Programming Language</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/C/">C++</a></span></div><div class="content">const applies to the thing left of it. If there is nothing on the left then it applies to the thing right of it.</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/04/16/e308c70cffa3/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-04-16T08:50:55.619Z" title="Created 2022-04-16 16:50:55">2022-04-16</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-19T15:03:16.289Z" title="Updated 2022-06-19 23:03:16">2022-06-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/hello/">hello</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ciao/">ciao</a></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+When you awaken in the morning's hush,
+I am the swift uplifting rush
+Of quiet birds in circled flight.
+I am the soft stars that shine at night.
+Do not stand at my grave and cry.
+I am not there,I did not die.
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/04/18/2a455be52747/" title="Const in C++">Const in C++</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-04-18T04:21:44.000Z" title="Created 2022-04-18 12:21:44">2022-04-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Programming-Language/">Programming Language</a></span></div><div class="content">const语法
+
+const默认作用于其左边，如果左边没有东西则作用于其右边
+const applies to the thing left of it. If there is nothing on the left then it applies to the thing right of it.
+
+Example
+const int* p; // can't change data
+该const因为左边没有东西，作用于右边int成为const int，再用*修饰，成为 a pointer to constant integer（指向数据不可更改）。
+int* const p; // can't change pointer
+该const优先作用于左边*，成为const pointer，再与int结合，成为 a constant pointer to integer（指针指向不可更改但是指向数据可更改）。
+const int* const p; // can't change data or pointer
+与上面两个同理，第一个const作用于右边int，成为const int， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/04/16/e308c70cffa3/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-04-16T08:50:55.619Z" title="Created 2022-04-16 16:50:55">2022-04-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/hello/">hello</a></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick Start
-Cre ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/rui_ss.webp" onerror="this.onerror=null;this.src='/img/error_f.gif'" alt="avatar"/></div><div class="author-info__name">Jeason Cheng</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/Archives/"><div class="headline">Articles</div><div class="length-num">8</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/gufeng4396"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/gufeng4396" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3515593397cxt@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Welcome！😃</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/07/05/8f398f91f827/" title="408 - 計算機組成原理">408 - 計算機組成原理</a><time datetime="2022-07-05T06:58:32.000Z" title="Created 2022-07-05 14:58:32">2022-07-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/06/22/0c1cb32b27d0/" title="408-數據結構">408-數據結構</a><time datetime="2022-06-22T13:34:01.000Z" title="Created 2022-06-22 21:34:01">2022-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/05/07/839f53253d7c/" title="Markdown基礎教程">Markdown基礎教程</a><time datetime="2022-05-07T01:43:42.000Z" title="Created 2022-05-07 09:43:42">2022-05-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/05/06/57f57a07a698/" title="epub製作-文本預處理">epub製作-文本預處理</a><time datetime="2022-05-06T06:59:25.000Z" title="Created 2022-05-06 14:59:25">2022-05-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/05/05/edb35936d12a/" title="epub基礎教程">epub基礎教程</a><time datetime="2022-05-05T07:58:29.000Z" title="Created 2022-05-05 15:58:29">2022-05-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+Create a new post
+1$ hexo new &quot;My New Post&quot;
+More info: Writing
+Run server
+1$ hexo server
+More info: Server
+Generate static files
+1$ hexo generate
+More info: Generating
+Deploy to remote sites
+1$ hexo deploy
+More info: Deployment
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jeason Cheng</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/Archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/07/05/8f398f91f827/" title="408 - 計算機組成原理">408 - 計算機組成原理</a><time datetime="2022-07-05T06:58:32.000Z" title="Created 2022-07-05 14:58:32">2022-07-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/06/22/0c1cb32b27d0/" title="408-數據結構">408-數據結構</a><time datetime="2022-06-22T13:34:01.000Z" title="Created 2022-06-22 21:34:01">2022-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/05/07/839f53253d7c/" title="Markdown基礎教程">Markdown基礎教程</a><time datetime="2022-05-07T01:43:42.000Z" title="Created 2022-05-07 09:43:42">2022-05-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/05/06/57f57a07a698/" title="epub製作-文本預處理">epub製作-文本預處理</a><time datetime="2022-05-06T06:59:25.000Z" title="Created 2022-05-06 14:59:25">2022-05-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/05/05/edb35936d12a/" title="epub基礎教程">epub基礎教程</a><time datetime="2022-05-05T07:58:29.000Z" title="Created 2022-05-05 15:58:29">2022-05-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Markdown/"><span class="card-category-list-name">Markdown</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Programming-Language/"><span class="card-category-list-name">Programming Language</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Thoughts/"><span class="card-category-list-name">Thoughts</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/e-book/"><span class="card-category-list-name">e-book</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/hello/"><span class="card-category-list-name">hello</span><span class="card-category-list-count">1</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/408/" style="font-size: 1.5em; color: #99a9bf">408</a> <a href="/tags/C/" style="font-size: 1.1em; color: #999">C++</a> <a href="/tags/Markdown/" style="font-size: 1.1em; color: #999">Markdown</a> <a href="/tags/ciao/" style="font-size: 1.1em; color: #999">ciao</a> <a href="/tags/data-structure/" style="font-size: 1.5em; color: #99a9bf">data structure</a> <a href="/tags/epub/" style="font-size: 1.5em; color: #99a9bf">epub</a> <a href="/tags/poem/" style="font-size: 1.1em; color: #999">poem</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Archives/2022/07/"><span class="card-archive-list-date">July 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Archives/2022/06/"><span class="card-archive-list-date">June 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Archives/2022/05/"><span class="card-archive-list-date">May 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Archives/2022/04/"><span class="card-archive-list-date">April 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">Run time :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-04-17T05:32:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">10.4k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-08-26T06:04:53.086Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By Jeason Cheng</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">something for nothing<br><img src="\img\meng.png" width="18px" height="18px"><a href="https://icp.gov.moe/?keyword=20221660" target="_blank">萌ICP备20221660号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">簡</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Local search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
-  if (typeof pangu === 'object') pangu.autoSpacingPage()
-  else {
-    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
-      .then(() => {
-        pangu.autoSpacingPage()
-      })
-  }
-}
-
-function panguInit () {
-  if (false){
-    GLOBAL_CONFIG_SITE.isPost && panguFn()
-  } else {
-    panguFn()
-  }
-}
-
-document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function subtitleType () {
-  if (false) { 
-    window.typed = new Typed("#subtitle", {
-      strings: ["有時你唱起歌，有時你沉默，有時你望著天空"],
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: false,
-      backSpeed: 50
-    })
-  } else {
-    document.getElementById("subtitle").innerHTML = '有時你唱起歌，有時你沉默，有時你望著天空'
-  }
-}
-
-if (false) {
-  if (typeof Typed === 'function') {
-    subtitleType()
-  } else {
-    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
-  }
-} else {
-  subtitleType()
-}</script><script>(() => {
-  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
-  if ($mermaidWrap.length) {
-    window.runMermaid = () => {
-      window.loadMermaid = true
-      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'forest'
-
-      Array.from($mermaidWrap).forEach((item, index) => {
-        const mermaidSrc = item.firstElementChild
-        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
-        const mermaidID = 'mermaid-' + index
-        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
-        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
-          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
-        })
-      })
-    }
-
-    const loadMermaid = () => {
-      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
-    }
-
-    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
-  }
-})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
-
-  typeof preloader === 'object' && preloader.initLoading()
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
-      }
-    }
-  }
-
-  typeof typed === 'object' && typed.destroy()
-
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
-
-})
-
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
-
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
-  })
-
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-  typeof chatBtnFn === 'function' && chatBtnFn()
-  typeof panguInit === 'function' && panguInit()
-
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
-
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
-
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
-
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-
-  typeof preloader === 'object' && preloader.endLoading()
-})
-
-document.addEventListener('pjax:error', (e) => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
-  }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/C/" style="font-size: 1.1em; color: #999">C++</a> <a href="/tags/ciao/" style="font-size: 1.1em; color: #999">ciao</a> <a href="/tags/poem/" style="font-size: 1.1em; color: #999">poem</a> <a href="/tags/408/" style="font-size: 1.5em; color: #99a9bf">408</a> <a href="/tags/epub/" style="font-size: 1.5em; color: #99a9bf">epub</a> <a href="/tags/data-structure/" style="font-size: 1.5em; color: #99a9bf">data structure</a> <a href="/tags/Markdown/" style="font-size: 1.1em; color: #999">Markdown</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Archives/2022/07/"><span class="card-archive-list-date">July 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Archives/2022/06/"><span class="card-archive-list-date">June 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Archives/2022/05/"><span class="card-archive-list-date">May 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Archives/2022/04/"><span class="card-archive-list-date">April 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-05-29T07:35:37.882Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Jeason Cheng</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
