@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>政治學學習記錄</title>
+      <link href="/2023/10/04/4d7bdf22aa6b/"/>
+      <url>/2023/10/04/4d7bdf22aa6b/</url>
+      
+        <content type="html"><![CDATA[<div class="note red icon-padding modern"><i class="note-icon fas fa-fan"></i><p>主要基於臺大李錫錕教授的政治學概論課程</p></div><p>李錫錕教授的政治學概論 <a href="https://www.bilibili.com/video/BV1et4y1v7A9/">观看地址</a></p><hr><h3 id="week1-政治的定義">week1 政治的定義</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Course </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> political science </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Cryptography学习记录</title>
+      <link href="/2023/09/26/1cb0dd70ec20/"/>
+      <url>/2023/09/26/1cb0dd70ec20/</url>
+      
+        <content type="html"><![CDATA[<div class="note red icon-padding modern"><i class="note-icon fas fa-fan"></i><p>主要基于UOW的CSCI971课程<br>以及Dan Boneh的密码学课程</p></div><p>Dan Boneh的密码学课程 <a href="https://www.bilibili.com/video/BV1yx411T78i/">观看地址</a></p><hr><h3 id="Lecture1-Introduction">Lecture1 Introduction</h3><h5 id="three-steps-in-modern-cryptography">three steps in modern cryptography</h5><ul><li>Precisely specify threat model</li><li>Propose a construction</li><li>Prove that breaking construction under threat mode will solve an underlying hard problem</li></ul><h5 id="how-to-crack-vingina">how to crack vingina</h5>]]></content>
+      
+      
+      <categories>
+          
+          <category> Course </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cryptography </tag>
+            
+            <tag> CSCI881 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Deep learning学习记录</title>
       <link href="/2023/08/09/1dc426a15d26/"/>
       <url>/2023/08/09/1dc426a15d26/</url>
